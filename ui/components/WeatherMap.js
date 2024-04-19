@@ -1,6 +1,6 @@
 // components/WeatherMap.js
 import GoogleMapReact from 'google-map-react';
-import React from 'react';
+import React, { useEffect } from 'react';
 
 const AnyReactComponent = ({ text }) => <div>{text}</div>;
 
@@ -8,8 +8,8 @@ const WeatherMap = ({ center, zoom, weatherData }) => {
   const [mapsApi, setMapsApi] = React.useState(null);
   const [mapInstance, setMapInstance] = React.useState(null);
 
-  // Print current weather data to console
-  console.log(weatherData);
+  console.log("Current weather data:", weatherData);
+  console.log("Center:", center);
 
   // Heatmap data points
   let heatmapData = [];
@@ -26,11 +26,18 @@ const WeatherMap = ({ center, zoom, weatherData }) => {
     });
   }
 
-  // Callback function to run when the map is loaded
+  // Callback function to run when the map and APIs are loaded
   const handleApiLoaded = ({ map, maps }) => {
     setMapsApi(maps);
     setMapInstance(map);
   };
+
+  // Listen for changes in the center prop and update the map instance
+  useEffect(() => {
+    if (mapInstance && center) {
+      mapInstance.panTo(new mapsApi.LatLng(center.lat, center.lng));
+    }
+  }, [center, mapsApi, mapInstance]);
 
   return (
     <div style={{ height: '100vh', width: '100%' }}>
@@ -39,8 +46,8 @@ const WeatherMap = ({ center, zoom, weatherData }) => {
           key: 'AIzaSyCQEjBzl2MSx3l7rvE6aTOGkJGaQBUzQvI', // Place your Google Maps API key here
           libraries: 'visualization',
         }}
-        defaultCenter={center || { lat: 59.95, lng: 30.33 }}  // Use passed center or default
-        defaultZoom={zoom || 11}  // Use passed zoom or default
+        center={center} // Use passed center to immediately center the map
+        zoom={zoom || 11} // Use passed zoom or default
         yesIWantToUseGoogleMapApiInternals
         onGoogleApiLoaded={handleApiLoaded}
       >

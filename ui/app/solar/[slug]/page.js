@@ -1,8 +1,8 @@
 // pages/IndexPage.js
 'use client'
 import React, { useEffect, useState } from 'react';
-import WeatherMap from '../../../components/WeatherMap';
-
+import WeatherMap from '../../../components/SolarMap';
+import axios from 'axios';
 const IndexPage = ({ params }) => {
   const [lat, setLat] = useState(59.45);  // Default latitude
   const [lng, setLng] = useState(30.33);  // Default longitude
@@ -37,3 +37,4 @@ console.log(lat,lng)
 };
 
 export default IndexPage;
+

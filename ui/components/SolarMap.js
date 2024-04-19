@@ -1,6 +1,6 @@
 import React, { useEffect, useState } from 'react';
 import GoogleMapReact from 'google-map-react';
-import axios from 'axios'; // Import axios here
+import axios from 'axios'; 
 
 const AnyReactComponent = ({ text }) => <div>{text}</div>;
 
@@ -14,9 +14,9 @@ const WeatherMap = ({ center, zoom, weatherData }) => {
 
   // Function to fetch data layers
   const fetchDataLayers = async (latitude, longitude) => {
-    const apiKey = 'AIzaSyBIJOPH26-9JVs6rw8801a4IGyB65ZUtQQ'; // Replace with your actual API key
-    const url = `https://solar.googleapis.com/v1/dataLayers:get?location.latitude=${latitude}&location.longitude=${longitude}&radiusMeters=10000&view=FULL_LAYERS&key=${apiKey}`;
-  
+    console.log("heys",latitude,longitude)
+    const url = `https://solar.googleapis.com/v1/dataLayers:get?location.latitude=${latitude}&location.longitude=${longitude}&radiusMeters=2&view=FULL_LAYERS&key=AIzaSyBjirZCl2bHU4ilAtNU7AuxQDN3m5MG8cA`;
+  console.log(url)
     try {
       const response = await axios.get(url);
       setDataLayers(response.data);
@@ -38,8 +38,9 @@ const WeatherMap = ({ center, zoom, weatherData }) => {
     }
   };
   
-  // Effect to fetch data layers when center changes
+ 
   useEffect(() => {
+    console.log('center',center)
     if (center) {
       fetchDataLayers(center.lat, center.lng);
     }
@@ -76,7 +77,7 @@ const WeatherMap = ({ center, zoom, weatherData }) => {
     <div style={{ height: '100vh', width: '100%' }}>
       <GoogleMapReact
         bootstrapURLKeys={{
-          key: 'YOUR_GOOGLE_MAPS_API_KEY',
+          key: 'AIzaSyBjirZCl2bHU4ilAtNU7AuxQDN3m5MG8cA',
           libraries: 'visualization',
         }}
         center={center}

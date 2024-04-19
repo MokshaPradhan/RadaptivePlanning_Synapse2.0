@@ -7,12 +7,15 @@ const AnyReactComponent = ({ text }) => <div>{text}</div>;
 const WeatherMap = ({ center, zoom, weatherData }) => {
   const [mapsApi, setMapsApi] = React.useState(null);
   const [mapInstance, setMapInstance] = React.useState(null);
-console.log(weatherData)
+
+  // Print current weather data to console
+  console.log(weatherData);
+
   // Heatmap data points
   let heatmapData = [];
   if (weatherData && mapsApi && mapInstance) {
     heatmapData = weatherData.map((data) => {
-        console.log("hiii",data.lat,data.lng)
+      console.log("Mapping data:", data.lat, data.lng);
       return new mapsApi.LatLng(data.lat, data.lng);
     });
 
@@ -23,6 +26,7 @@ console.log(weatherData)
     });
   }
 
+  // Callback function to run when the map is loaded
   const handleApiLoaded = ({ map, maps }) => {
     setMapsApi(maps);
     setMapInstance(map);
@@ -35,8 +39,8 @@ console.log(weatherData)
           key: 'AIzaSyCQEjBzl2MSx3l7rvE6aTOGkJGaQBUzQvI', // Place your Google Maps API key here
           libraries: 'visualization',
         }}
-        defaultCenter={center}
-        defaultZoom={zoom}
+        defaultCenter={center || { lat: 59.95, lng: 30.33 }}  // Use passed center or default
+        defaultZoom={zoom || 11}  // Use passed zoom or default
         yesIWantToUseGoogleMapApiInternals
         onGoogleApiLoaded={handleApiLoaded}
       >
@@ -52,11 +56,6 @@ console.log(weatherData)
       </GoogleMapReact>
     </div>
   );
-};
-
-WeatherMap.defaultProps = {
-  center: { lat: 59.95, lng: 30.33 },
-  zoom: 11,
 };
 
 export default WeatherMap;

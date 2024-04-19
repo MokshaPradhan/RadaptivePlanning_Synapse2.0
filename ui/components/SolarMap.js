@@ -13,31 +13,31 @@ const WeatherMap = ({ center, zoom, weatherData }) => {
   console.log("Center:", center);
 
   // Function to fetch data layers
-  const fetchDataLayers = async (latitude, longitude) => {
-    const apiKey = 'AIzaSyBIJOPH26-9JVs6rw8801a4IGyB65ZUtQQ'; // Replace with your actual API key
-    const url = `https://solar.googleapis.com/v1/dataLayers:get?location.latitude=${latitude}&location.longitude=${longitude}&radiusMeters=10000&view=FULL_LAYERS&key=${apiKey}`;
-  
-    try {
-      const response = await axios.get(url);
-      setDataLayers(response.data);
-    } catch (error) {
-      if (error.response) {
-        // The request was made and the server responded with a status code
-        console.error('Error response data:', error.response.data);
-        console.error('Error response status:', error.response.status);
-        console.error('Error response headers:', error.response.headers);
-      } else if (error.request) {
-        // The request was made but no response was received
-        console.error('Error request:', error.request);
-      } else {
-        // Something happened in setting up the request that triggered an error
-        console.error('Error message:', error.message);
+const fetchDataLayers = async (latitude, longitude) => {
+  const apiKey = 'AIzaSyBIJOPH26-9JVs6rw8801a4IGyB65ZUtQQ'; // Replace with your actual API key
+  const url = `https://solar.googleapis.com/v1/dataLayers:get?location.latitude=${latitude}&location.longitude=${longitude}&radiusMeters=10000&view=FULL_LAYERS&key=${apiKey}`;
+
+  try {
+    const response = await axios.get(url);
+    setDataLayers(response.data);
+  } catch (error) {
+    if (error.response) {
+      console.error('Error response data:', error.response.data);
+      console.error('Error response status:', error.response.status);
+      console.error('Error response headers:', error.response.headers);
+      // Handle specific status codes
+      if (error.response.status === 403) {
+        console.error('Access denied. Check API key and permissions.');
       }
-      console.error('Error fetching data:', error);
-      throw error;
+    } else if (error.request) {
+      console.error('Error request:', error.request);
+    } else {
+      console.error('Error message:', error.message);
     }
-  };
-  
+    console.error('Error fetching data:', error);
+  }
+};
+
   // Effect to fetch data layers when center changes
   useEffect(() => {
     if (center) {

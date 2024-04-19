@@ -1,11 +1,11 @@
 // pages/IndexPage.js
 'use client'
 import React, { useEffect, useState } from 'react';
-import WeatherMap from '../../../components/WeatherMap';
+import WeatherMap from '../../../components/airquality';
 
 const IndexPage = ({ params }) => {
-  const [lat, setLat] = useState(59.45);  // Default latitude
-  const [lng, setLng] = useState(30.33);  // Default longitude
+  const [lat, setLat] = useState();  // Default latitude
+  const [lng, setLng] = useState();  // Default longitude
 
   useEffect(() => {
     if (params.slug) {

@@ -24,7 +24,7 @@ const GoogleMapsComponent = ({ defaultPlace }) => {
 
     const mapInstance = new window.google.maps.Map(mapElementRef.current, {
       center: geocoderResult.geometry.location,
-      zoom: 29,
+      zoom: 15,
       tilt: 0,
       mapTypeId: 'satellite',
       mapTypeControl: false,

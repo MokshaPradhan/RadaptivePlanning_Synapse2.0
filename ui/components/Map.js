@@ -1,5 +1,6 @@
 import React, { useState, useEffect, useRef } from 'react';
 import Script from 'next/script';
+import Link from 'next/link';
 
 const GoogleMapsComponent = ({ defaultPlace }) => {
   const [map, setMap] = useState(null);
@@ -134,6 +135,34 @@ const GoogleMapsComponent = ({ defaultPlace }) => {
       <p>Search Query: {location.searchQuery || 'N/A'}</p>
     )}
   </div>
+  <div>
+  <Link href='/solar'>
+
+  <button type="submit" className="w-full p-2 bg-blue-500 text-white mt-2 rounded-lg">
+      Solar data
+    </button>
+    </Link>
+
+    <Link href='/solar'>
+  <button type="submit" className="w-full p-2 bg-blue-500 text-white mt-2 rounded-lg">
+      Wind data
+    </button>
+    </Link>
+    <Link href='/solar'>
+
+  <button type="submit" className="w-full p-2 bg-blue-500 text-white mt-2 rounded-lg">
+      Weather data 
+    </button>
+    </Link>
+
+    <Link href='/airquality'>
+
+  <button type="submit" className="w-full p-2 bg-blue-500 text-white mt-2 rounded-lg">
+      Air quality
+    </button>
+    </Link>
+
+    </div>
 </aside>
 
       </div>

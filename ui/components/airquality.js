@@ -11,7 +11,7 @@ const WeatherMap = ({ center, zoom, weatherData }) => {
   // Function to fetch air quality data
   const fetchAirQualityData = async (lat, lng) => {
     try {
-      const response = await fetch('https://airquality.googleapis.com/v1/currentConditions:lookup?key=YOUR_API_KEY', {
+      const response = await fetch('https://airquality.googleapis.com/v1/currentConditions:lookup?key=AIzaSyBjirZCl2bHU4ilAtNU7AuxQDN3m5MG8cA', {
         method: 'POST',
         headers: {
           'Content-Type': 'application/json'

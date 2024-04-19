@@ -32,13 +32,14 @@ const WeatherMap = ({ center, zoom, weatherData }) => {
       } else {
         // Something happened in setting up the request that triggered an error
         console.error('Error message:', error.message);
-      }
-      console.error('Error fetching data:', error);
-      throw error;
-    }
   };
   
  
+    console.error('Error fetching data:', error);
+  }
+};
+
+  // Effect to fetch data layers when center changes
   useEffect(() => {
     console.log('center',center)
     if (center) {
@@ -99,4 +100,4 @@ const WeatherMap = ({ center, zoom, weatherData }) => {
   );
 };
 
-export default WeatherMap;
+export default WeatherMap

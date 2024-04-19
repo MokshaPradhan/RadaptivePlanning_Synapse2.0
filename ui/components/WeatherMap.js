@@ -1,41 +1,39 @@
 // components/WeatherMap.js
-
 import GoogleMapReact from 'google-map-react';
-import React, { useState, useEffect } from 'react';
+import React from 'react';
 
 const AnyReactComponent = ({ text }) => <div>{text}</div>;
 
 const WeatherMap = ({ center, zoom, weatherData }) => {
-  const [mapsApi, setMapsApi] = useState(null);
-  const [mapInstance, setMapInstance] = useState(null);
-
+  const [mapsApi, setMapsApi] = React.useState(null);
+  const [mapInstance, setMapInstance] = React.useState(null);
+console.log(weatherData)
   // Heatmap data points
   let heatmapData = [];
   if (weatherData && mapsApi && mapInstance) {
     heatmapData = weatherData.map((data) => {
+        console.log("hiii",data.lat,data.lng)
       return new mapsApi.LatLng(data.lat, data.lng);
     });
 
     // Create a new heatmap overlay
-    const heatmap = new mapsApi.visualization.HeatmapLayer({
+    new mapsApi.visualization.HeatmapLayer({
       data: heatmapData,
       map: mapInstance,
     });
   }
 
-  // Callback function to run when the map is loaded
   const handleApiLoaded = ({ map, maps }) => {
     setMapsApi(maps);
     setMapInstance(map);
   };
 
   return (
-    // Important! Always set the container height explicitly
     <div style={{ height: '100vh', width: '100%' }}>
       <GoogleMapReact
         bootstrapURLKeys={{
-          key: 'YOUR_GOOGLE_MAPS_API_KEY', // Replace with your Google Maps API key
-          libraries: 'visualization', // To use the Heatmap Layer
+          key: 'AIzaSyCQEjBzl2MSx3l7rvE6aTOGkJGaQBUzQvI', // Place your Google Maps API key here
+          libraries: 'visualization',
         }}
         defaultCenter={center}
         defaultZoom={zoom}
@@ -57,10 +55,7 @@ const WeatherMap = ({ center, zoom, weatherData }) => {
 };
 
 WeatherMap.defaultProps = {
-  center: {
-    lat: 59.95,
-    lng: 30.33,
-  },
+  center: { lat: 59.95, lng: 30.33 },
   zoom: 11,
 };
 

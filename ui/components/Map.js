@@ -109,16 +109,16 @@ const GoogleMapsComponent = ({ defaultPlace }) => {
             )}
           </div>
           <div>
-            <Link href={`/solar?lat=${location?.lat}&lng=${location?.lng}`}
+            <Link href={`/solar/lat=${location?.lat}&lng=${location?.lng}`}
                className="w-full p-2 bg-blue-500 text-white mt-2 rounded-lg block text-center">Solar Data
             </Link>
-            <Link href={`/wind?lat=${location?.lat}&lng=${location?.lng}`}
+            <Link href={`/wind/lat=${location?.lat}&lng=${location?.lng}`}
                className="w-full p-2 bg-blue-500 text-white mt-2 rounded-lg block text-center">Wind Data
             </Link>
-            <Link href={`/weather?lat=${location?.lat}&lng=${location?.lng}`}
+            <Link href={`/weather/lat=${location?.lat}&lng=${location?.lng}`}
                className="w-full p-2 bg-blue-500 text-white mt-2 rounded-lg block text-center">Weather Data
             </Link>
-            <Link href={`/airquality?lat=${location?.lat}&lng=${location?.lng}`}
+            <Link href={`/airquality/lat=${location?.lat}&lng=${location?.lng}`}
                className="w-full p-2 bg-blue-500 text-white mt-2 rounded-lg block text-center">Air Quality
             </Link>
           </div>

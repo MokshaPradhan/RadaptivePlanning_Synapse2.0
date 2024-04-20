@@ -1,3 +1,4 @@
+
 // pages/IndexPage.js
 'use client'
 import React, { useEffect, useState } from 'react';
@@ -37,4 +38,3 @@ console.log(lat,lng)
 };
 
 export default IndexPage;
-

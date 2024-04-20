@@ -109,13 +109,14 @@ const GoogleMapsComponent = ({ defaultPlace }) => {
             )}
           </div>
           <div>
-            <Link href={`/solar/lat=${location?.lat}&lng=${location?.lng}`}
+            {/* <Link href={`/solar/lat=${location?.lat}&lng=${location?.lng}`} */}
+            <Link href={'http://localhost:5173/'}
                className="w-full p-2 bg-blue-500 text-white mt-2 rounded-lg block text-center">Solar Data
             </Link>
-            <Link href={`/wind/lat=${location?.lat}&lng=${location?.lng}`}
+            <Link href={"http://127.0.0.1:5500/demo/demo.html"}
                className="w-full p-2 bg-blue-500 text-white mt-2 rounded-lg block text-center">Wind Data
             </Link>
-            <Link href={`/weather/lat=${location?.lat}&lng=${location?.lng}`}
+            <Link href={`C:/Users/Moksha Pradhan/Desktop/leaflet-openweathermap/example/index.html`}
                className="w-full p-2 bg-blue-500 text-white mt-2 rounded-lg block text-center">Weather Data
             </Link>
             <Link href={`/airquality/lat=${location?.lat}&lng=${location?.lng}`}

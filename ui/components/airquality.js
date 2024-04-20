@@ -1,6 +1,7 @@
 import GoogleMapReact from 'google-map-react';
 import React, { useEffect, useState } from 'react';
 
+
 const AnyReactComponent = ({ text }) => <div style={{ padding: '5px', backgroundColor: '#f0f0f0', borderRadius: '5px' }}>{text}</div>;
 
 const WeatherMap = ({ center, zoom, weatherData }) => {
@@ -71,7 +72,7 @@ const WeatherMap = ({ center, zoom, weatherData }) => {
       <div style={{ width: '75%' }}>
         <GoogleMapReact
           bootstrapURLKeys={{
-            key: 'YOUR_API_KEY', // Use your actual Google Maps API key
+            key: 'AIzaSyBjirZCl2bHU4ilAtNU7AuxQDN3m5MG8cA', // Use your actual Google Maps API key
             libraries: 'visualization',
           }}
           center={center}
@@ -90,21 +91,37 @@ const WeatherMap = ({ center, zoom, weatherData }) => {
             ))}
         </GoogleMapReact>
       </div>
-      <div style={{ width: '25%', padding: '20px', background: '#f4f4f4', overflowY: 'auto' }}>
+      <div style={{ width: '25%', padding: '20px', background: '#f4f4f4', overflowY: 'auto',color:"black" }}>
         {airQuality ? (
           <>
-            <h4 style={{ color: '#333', margin: '0 0 10px 0' }}>Air Quality Details:</h4>
-            <div style={{ marginBottom: '20px', padding: '10px', background: '#fff', borderRadius: '8px', boxShadow: '0 2px 4px rgba(0,0,0,0.1)' }}>
-              <h5>Indexes:</h5>
+            <div style={{
+  backgroundColor: '#7600bc',
+  padding: '10px',
+  borderRadius: '10px',
+  fontFamily: 'Arial, sans-serif',
+  paddingBottom: '10px',
+  boxShadow: '0 0 10px rgba(0, 0, 0, 0.1)',
+  display: 'flex',
+  alignItems: 'center'
+}}>
+  <img src="/airy12.png" alt="Air Icon" style={{ marginRight: '10px', width: '20px', height: '20px' }} /> {/* Replace 'air-icon.png' with the path to your air icon */}
+  <h4 style={{ color: '#fff', margin: '0', fontWeight: 'bold' }}> {/* Added fontWeight: 'bold' */}
+    Air Quality Details:
+  </h4>
+</div>
+
+            <div style={{ marginTop:'10px',marginBottom: '20px', padding: '10px', background: '#ecddfc', borderRadius: '8px', boxShadow: '0 2px 4px rgba(0,0,0,0.1)' }}>
+              <h5 style={{color:"#7600bc",fontWeight:"bold"}}>Indexes:</h5>
               {airQuality.indexes.map((index, idx) => (
                 <p key={idx} style={{ margin: '5px 0' }}>
                   <strong>{index.displayName}:</strong> {index.aqi} 
-                  <span style={{ color: index.color.color, fontWeight: 'bold', marginLeft: '10px' }}>Color: {index.color.color}</span>
+                  <span style={{ color: index.color.color, fontWeight: 'bold', marginLeft: '10px' }}> {index.color.color}</span>
                 </p>
               ))}
             </div>
-            <div style={{ marginBottom: '20px', padding: '10px', background: '#fff', borderRadius: '8px', boxShadow: '0 2px 4px rgba(0,0,0,0.1)' }}>
-              <h5>Pollutant Levels:</h5>
+            <div style={{ marginBottom: '20px', padding: '10px', background: '#ecddfc', borderRadius: '8px', boxShadow: '0 2px 4px rgba(0,0,0,0.1)' }}>
+            <h5 style={{ color: '#7600bc', margin: '0', fontWeight: 'bold', fontSize: '18px' }}> {/* Added fontSize: '18px' */}
+                            Pollutant Levels:</h5>
               {airQuality.pollutants.map((pollutant, idx) => (
                 <p key={idx} style={{ margin: '5px 0' }}>
                   <strong>{pollutant.displayName} ({pollutant.fullName}):</strong> {pollutant.concentration.value} 
@@ -112,16 +129,16 @@ const WeatherMap = ({ center, zoom, weatherData }) => {
                 </p>
               ))}
             </div>
-            <div style={{ marginBottom: '20px', padding: '10px', background: '#fff', borderRadius: '8px', boxShadow: '0 2px 4px rgba(0,0,0,0.1)' }}>
-              <h5>Health Recommendations:</h5>
+            <div style={{ marginBottom: '20px', padding: '10px', background: '#ecddfc', borderRadius: '8px', boxShadow: '0 2px 4px rgba(0,0,0,0.1)' }}>
+              <h5 style={{ color: '#7600bc', margin: '0', fontWeight: 'bold' }}>Health Recommendations:</h5>
               {Object.keys(airQuality.healthRecommendations).map(key => (
                 <p key={key} style={{ margin: '5px 0' }}>
                   <strong>{key.charAt(0).toUpperCase() + key.slice(1).replace(/([A-Z])/g, ' $1')}: </strong>{airQuality.healthRecommendations[key]}
                 </p>
               ))}
             </div>
-            <div style={{ marginBottom: '20px', padding: '10px', background: '#fff', borderRadius: '8px', boxShadow: '0 2px 4px rgba(0,0,0,0.1)' }}>
-              <h5>Additional Pollutant Information:</h5>
+            <div style={{ marginBottom: '20px', padding: '10px', background: '#ecddfc', borderRadius: '8px', boxShadow: '0 2px 4px rgba(0,0,0,0.1)' }}>
+              <h5 style={{ color: '#7600bc', margin: '0', fontWeight: 'bold' }}>Additional Pollutant Information:</h5>
               {airQuality.pollutants.map((pollutant, idx) => (
                 <div key={idx}>
                   <p><strong>{pollutant.displayName} Effects:</strong> {pollutant.additionalInfo.effects}</p>

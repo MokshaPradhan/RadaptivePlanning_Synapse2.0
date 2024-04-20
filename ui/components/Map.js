@@ -122,6 +122,9 @@ const GoogleMapsComponent = ({ defaultPlace }) => {
             <Link href={`/airquality/lat=${location?.lat}&lng=${location?.lng}`}
                className="w-full p-2 bg-blue-500 text-white mt-2 rounded-lg block text-center">Air Quality
             </Link>
+            <Link href={`/generatereport/lat=${location?.lat}&lng=${location?.lng}`}
+               className="w-full p-2 bg-blue-500 text-white mt-2 rounded-lg block text-center">Generate report
+            </Link>
           </div>
         </aside>
       </div>

@@ -1,15 +1,32 @@
 import React, { useState } from 'react';
 import axios from 'axios';
-import { useRouter } from 'next/router';
 
-const ReportPage = () => {
-  const router = useRouter();
-  const { lat, lng } = router.query; // Extract lat and lng directly from the URL query parameters
-
+const ReportPage = ({params}) => {
+  const [lat, setLat] = useState(59.45);  // Default latitude
+  const [lng, setLng] = useState(30.33);
+  
   const [reportData, setReportData] = useState(null);
   const [loading, setLoading] = useState(false);
   const [error, setError] = useState(null);
 
+  useEffect(() => {
+    if (params.slug) {
+      const decodedSlug = decodeURIComponent(params.slug);
+      const parts = decodedSlug.split('&');
+      parts.forEach(part => {
+        const [key, value] = part.split('=');
+        if (key === 'lat') {
+          setLat(parseFloat(value));
+        } else if (key === 'lng') {
+          setLng(parseFloat(value));
+        }
+      });
+    }
+  }, [params.slug]);
+
+  if (!lat || !lng) {
+    return <p>Loading...</p>;
+  }
   const handleGenerateReport = async () => {
     if (!lat || !lng) {
       setError('Latitude and longitude are required.');

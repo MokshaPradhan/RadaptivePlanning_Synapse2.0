@@ -1,8 +1,8 @@
-﻿# RadaptivePlanning_Synapse2.0
 
-# Climate Action Planning with Reinforcement Learning and GenAI (CAPGen)
 
-This project spearheads a novel approach to climate change mitigation and adaptation through a data-driven platform powered by reinforcement learning (RL) and Generative AI (GenAI).
+# Climate Action Planning with Reinforcement Learning & GenAI 
+
+This project spearheads a novel approach to climate change mitigation and adaptation through a data-driven platform powered by reinforcement learning (RL) & Generative AI (GenAI).
 
 ## Project Overview
 
@@ -19,8 +19,6 @@ This project spearheads a novel approach to climate change mitigation and adapta
 
 ## Tech Stack
 
-This project utilizes a modern and scalable technology stack, carefully chosen for its suitability to the project's goals:
-
 **Data Collection and Integration:**
 
 * Primary Sources: Climate models (existing tools/APIs), Google Earth Engine API
@@ -28,18 +26,18 @@ This project utilizes a modern and scalable technology stack, carefully chosen f
 
 **Data Analysis and Insights:**
 
-* Machine Learning Frameworks: TensorFlow/PyTorch, Scikit-learn, Specialized libraries (e.g., Rasterio, GeoPandas)
-* Reinforcement Learning Frameworks: OpenAI Gym, Stable Baselines3
+* Machine Learning Frameworks: TensorFlow/PyTorch, Scikit-learn, Specialized libraries 
+* Reinforcement Learning Frameworks: OpenAI Gym
 * Data Visualization Tools: Power BI, Streamlit
 
 **Climate Action Plan Generation + Policy Making:**
 
-* Generative AI Tools: OpenAI API, Hugging Face Transformers (consider domain-specific NLP models)
+* Generative AI Tools: OpenAI API, Hugging Face Transformers 
 * RL Integration: Trained RL agent guides GenAI for optimal plan generation
 
 **Frontend:**
 
-* React (primary), Vue.js (alternative)
+* React (primary), Next.js
 
 **Visualization:**
 

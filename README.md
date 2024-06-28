@@ -48,22 +48,5 @@ This project spearheads a novel approach to climate change mitigation and adapta
 * Scalability and Efficiency: Utilize cloud-based platforms for scalability and containerization technologies for efficient deployment.
 * Security: Implement robust data security measures, especially when dealing with sensitive environmental data.
 
-## Getting Started
 
-(Instructions on how to set up and run the project, if applicable)
 
-## Contributing
-
-(Guidelines for contributing to the project, if applicable)
-
-## License
-
-(Specify the license under which the project is distributed)
-
-## Updates
-
-This version incorporates the power of reinforcement learning alongside GenAI. The RL agent actively learns through simulations, guiding GenAI in generating optimal and adaptable climate action plans. This combined approach aims to achieve superior decision-making and long-term effectiveness in combating climate change.
-
-**Note:** Replace placeholders like "(Instructions on how to set up and run the project, if applicable)" and "(Guidelines for contributing to the project, if applicable)" with your specific instructions and contribution guidelines.
-
-By including clear headings, concise explanations, a dedicated "Tech Stack" section, and addressing scalability and feasibility aspects, this README file provides a comprehensive and informative overview of your project.
